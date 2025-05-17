@@ -1,0 +1,156 @@
+/* src/components/landingPage.css */
+
+/* Hero container holds the animated background */
+.hero-container {
+  position: relative;
+  min-height: 90vh;           /* only 90vh tall */
+  background-size: cover;
+  background-position: center;
+  animation: slideAnimation 15s infinite;
+
+}
+
+/* Overlay sits on top of the hero only */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+/* Navbar inside hero */
+
+
+/* Hero text & button */
+.hero-title {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero-text {
+  color: #f3f4f6;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+.hero-button {
+  background-color: #facc15;
+  color: black;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.hero-button:hover {
+  background-color: #fbbf24;
+}
+.service-offer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+  background-color: #f9f9f9;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  padding: 20px;
+  max-width: 280px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 15px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 50%;
+  background-color: #eaf1ff;
+}
+
+.icon-circle.blue {
+  color: #007bff;
+  background-color: #eaf1ff;
+}
+
+.icon-circle.green {
+  color: #28a745;
+  background-color: #e6f4ea;
+}
+
+.icon-circle.yellow {
+  color: #ffc107;
+  background-color: #fff8e1;
+}
+
+h3 {
+  margin: 10px 0;
+  color: #333;
+}
+
+p {
+  font-size: 14px;
+  color: #555;
+}
+
+button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer now just flows below the hero */
+.footer {
+  background-color: rgba(0,0,0,0.8);
+  color: #ccc;
+  text-align: center;
+  padding: 1rem;
+}
+.footer a {
+  color: #facc15;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* Keyframes for background slideshow */
+@keyframes slideAnimation {
+  0%   { background-image: url('../../assets/1.png'); }
+  33%  { background-image: url('../../assets/2.png'); }
+  66%  { background-image: url('../../assets/3.png'); }
+  100% { background-image: url('../../assets/2.png'); }
+}
+
+  /* complaint styling  */

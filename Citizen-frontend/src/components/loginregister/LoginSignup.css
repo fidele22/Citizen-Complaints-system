@@ -1,0 +1,124 @@
+/* src/pages/login.css */
+/* 
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+  }
+   */
+  .login-page {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Left Side */
+  .login-left {
+    flex: 1;
+    background: linear-gradient(135deg, #1da740, #00ffff);
+    color: white;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-left h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .login-left p {
+    font-size: 18px;
+    max-width: 350px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .welcome-img {
+    width: 80%;
+    max-width: 300px;
+    margin-top: 30px;
+  }
+  
+  /* Right Side */
+  .login-right {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-box {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .login-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #004080;
+  }
+  
+  .login-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+  }
+  
+  .login-form input:focus {
+    border-color: #0074d9;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #004080;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #0059b3;
+  }
+  
+  .register-link {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .register-link a {
+    color: #0074d9;
+    text-decoration: none;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,150 @@
+/* General Page Styles */
+.track-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Left Panel */
+  .track-left {
+    flex: 1;
+    background-color: #f0f4fa;
+    padding: 60px 40px;
+    color: #1d3557;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .track-left h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .track-left p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 400px;
+    line-height: 1.6;
+  }
+  
+  .welcome-img {
+    max-width: 100%;
+    height: auto;
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Right Panel */
+  .track-right {
+    flex: 1;
+    padding: 60px 40px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .track-form h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #2b2d42;
+    display: flex;
+    align-items: center;
+  }
+  
+  .track-form input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .track-form input:focus {
+    border-color: #0c79df;
+    outline: none;
+  }
+  
+  .track-form button {
+    background-color: #0c79df;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .track-form button:hover {
+    background-color: #0855a3;
+  }
+  
+  /* Complaint Details */
+  .complaint-details {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #0c79df;
+    border-radius: 8px;
+    color: #2b2d42;
+  }
+  
+  .complaint-details h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #1d3557;
+    display: flex;
+    align-items: center;
+  }
+  
+  .complaint-details p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Error Message */
+  .error {
+    color: #d90429;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  /* Icons Styling */
+  .track-form svg,
+  .complaint-details svg {
+    color: #0c79df;
+    font-size: 18px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .track-container {
+      flex-direction: column;
+    }
+  
+    .track-left,
+    .track-right {
+      padding: 40px 20px;
+    }
+  
+    .track-left h1 {
+      font-size: 26px;
+    }
+  
+    .track-form h2 {
+      font-size: 24px;
+    }
+  }
+  

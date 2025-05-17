@@ -1,0 +1,11 @@
+/* In users.css or AddUser.css or create a new swal.css file and import it */
+.custom-swal {
+    max-width: 300px !important;  /* Reduce width */
+    width: 90% !important;        /* Responsive to screen */
+    padding: 20px !important;     /* Optional: padding */
+    border-radius: 12px !important; /* Optional: rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: better shadow */
+    text-align: center;
+    font-size: 12px;
+  }
+  

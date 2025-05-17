@@ -1,0 +1,95 @@
+/* nav.css */
+
+.navbar-custom {
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  height: 10vh;
+  z-index: 2;
+  padding: 10px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 26px;
+  height: 26px;
+  margin-right: 6px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #6b7280;
+  font-size: 15px;
+  transition: color 0.3s;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+.nav-links a.active {
+  color: #2563eb;
+  border-bottom: 2px solid #2563eb;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.sign-in-btn {
+  text-decoration: none;
+  border: 1px solid #d1d5db;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: #374151;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.sign-in-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.create-account-btn {
+  text-decoration: none;
+  background-color: #2563eb;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.create-account-btn:hover {
+  background-color: #1e40af;
+}
