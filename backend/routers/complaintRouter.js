@@ -147,4 +147,92 @@ router.put('/:ticketId', async (req, res) => {
   }
 });
 
+// GET /api/complaints/overview
+router.get('/overview-data', async (req, res) => {
+  try {
+    const total = await Complaint.countDocuments();
+
+    const statusCounts = await Complaint.aggregate([
+      { $group: { _id: '$status', count: { $sum: 1 } } }
+    ]);
+
+    const categoryCounts = await Complaint.aggregate([
+      { $group: { _id: '$category', count: { $sum: 1 } } }
+    ]);
+
+    const electricityByProvince = await Complaint.aggregate([
+      { $match: { category: 'Electricity' } },
+      { $group: { _id: '$provence', count: { $sum: 1 } } }
+    ]);
+
+    const latestComplaints = await Complaint.find()
+      .sort({ submittedAt: -1 })
+      .limit(5);
+
+    res.json({
+      total,
+      statusCounts: Object.fromEntries(statusCounts.map(i => [i._id, i.count])),
+      categoryCounts: Object.fromEntries(categoryCounts.map(i => [i._id, i.count])),
+      electricityByProvince: electricityByProvince.map(i => ({
+        province: i._id,
+        count: i.count
+      })),
+      latestComplaints
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching overview', error: err.message });
+  }
+});
+// GET /api/complaints/overview-data
+router.get('/overview-electrity-data', async (req, res) => {
+  try {
+    const electricityComplaints = await Complaint.find({ category: 'Electricity' }).sort({ submittedAt: -1 });
+
+    const total = electricityComplaints.length;
+    const pending = electricityComplaints.filter(c => c.status === 'Pending').length;
+    const inProgress = electricityComplaints.filter(c => c.status === 'In Progress').length;
+    const resolved = electricityComplaints.filter(c => c.status === 'Resolved').length;
+
+    const latestThree = electricityComplaints.slice(0, 3); // latest 3 complaints
+
+    res.json({
+      total,
+      pending,
+      inProgress,
+      resolved,
+      latestThree,
+      allComplaints: electricityComplaints, // if you still need full data for charts
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch complaints overview data' });
+  }
+});
+// GET /api/complaints/overview-data
+router.get('/overview-health-data', async (req, res) => {
+  try {
+    const HealthcareComplaints = await Complaint.find({ category: 'Healthcare' }).sort({ submittedAt: -1 });
+
+    const total = HealthcareComplaints.length;
+    const pending = HealthcareComplaints.filter(c => c.status === 'Pending').length;
+    const inProgress = HealthcareComplaints.filter(c => c.status === 'In Progress').length;
+    const resolved = HealthcareComplaints.filter(c => c.status === 'Resolved').length;
+
+    const latestThree = HealthcareComplaints.slice(0, 3); // latest 3 complaints
+
+    res.json({
+      total,
+      pending,
+      inProgress,
+      resolved,
+      latestThree,
+      allComplaints: HealthcareComplaints, // if you still need full data for charts
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch complaints overview data' });
+  }
+});
 module.exports = router;

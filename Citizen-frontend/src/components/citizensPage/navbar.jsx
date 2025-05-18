@@ -16,13 +16,13 @@ const Navbar = () => {
 
         <div className="nav-links">
           <Link to="/" className={pathname === '/' ? 'active' : ''}>Home</Link>
-          <Link to="/problems" className={pathname === '/problems' ? 'active' : ''}>Problems</Link>
-          <Link to="/submit" className={pathname === '/submit' ? 'active' : ''}>Submit Problem</Link>
+          <Link to="/complaint" className={pathname === '/complaint' ? 'active' : ''}>Submit complaint</Link>
+          <Link to="/trackProgress" className={pathname === '/trackProgress' ? 'active' : ''}>Track Progress</Link>
         </div>
 
         <div className="nav-buttons">
           <Link to="/login" className="sign-in-btn">⇨ Sign In</Link>
-          <Link to="/register" className="create-account-btn">Create Account</Link>
+
         </div>
       </div>
     </nav>

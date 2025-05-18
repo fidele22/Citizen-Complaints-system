@@ -102,7 +102,7 @@ const AddUser = ({ onUserAdded }) => {
     <div className='add-user'>
       <div className="register-user">
         <form onSubmit={handleSubmitRegisterUser}>
-          <h1>Register New User</h1>
+          <h1>Register New Agency</h1>
           <span>Use your email for registration</span>
 
           <label>First Name</label>

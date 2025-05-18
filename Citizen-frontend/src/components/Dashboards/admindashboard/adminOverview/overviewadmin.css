@@ -1,0 +1,158 @@
+.welcome-box {
+  background: linear-gradient(135deg, #4f5c81, #1cc88a);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.welcome-box h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.welcome-box h2 span {
+  font-weight: bold;
+  color: #f8f9fc;
+}
+
+.welcome-box p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+/* role box css */
+.role-badge {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #688af0, #2c5345);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  z-index: 999;
+  animation: bounce 2s ease infinite;
+}
+.role-car{
+padding: 2px;
+background-color: transparent;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.overview-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.metrics {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.metric-card {
+  background-color: #f4f4f4;
+  padding: 16px;
+  border-radius: 10px;
+  min-width: 160px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card.total {
+  background-color: #ffd700;
+}
+
+.metric-card.pending {
+  background-color: #ffebcc;
+}
+
+.metric-card.in-progress {
+  background-color: #d0ebff;
+}
+
+.metric-card.resolved {
+  background-color: #c8f7c5;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+.province-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.province-card {
+  background: #e0e0e0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  min-width: 140px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-pie {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-segment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-segment .dot {
+  width: 12px;
+  height: 12px;
+  background-color: #555;
+  border-radius: 50%;
+}
+
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.complaints-table th,
+.complaints-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.complaints-table th {
+  background-color: #f5f5f5;
+}
+
+@media (min-width: 200px) and (max-width: 600px) {
+  .welcome-box h2 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  .welcome-box p {
+    margin-top: 0.5rem;
+    font-size: .5rem;
+  }
+}

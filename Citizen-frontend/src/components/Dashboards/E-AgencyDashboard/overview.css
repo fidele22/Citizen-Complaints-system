@@ -20,6 +20,7 @@
   .welcome-box p {
     margin-top: 0.5rem;
     font-size: 1rem;
+    color: white;
   }
 /* role box css */
 .role-badge {
@@ -50,51 +51,139 @@ background-color: transparent;
     50% { transform: translateY(-5px); }
   }
   
-  
-  .status-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
+  .overview-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
   }
   
-  .status-card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: rgba(67, 83, 97, 0.4) 5px 5px, rgba(97, 83, 92, 0.3) 10px 10px, rgba(40, 48, 58, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+  h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+  
+  .metrics {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .metric-card {
+    background-color: #f4f4f4;
+    padding: 16px;
+    border-radius: 10px;
+    min-width: 160px;
+    flex: 1;
     text-align: center;
-    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .status-card:hover {
-    transform: translateY(-5px);
+  .metric-card.total {
+    background-color: #ffd700;
   }
   
-  .status-card h4 {
-    margin: 0.5rem 0;
-    color: #444;
+  .metric-card.pending {
+    background-color: #ffebcc;
   }
   
-  .status-card p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #007bff;
+  .metric-card.in-progress {
+    background-color: #d0ebff;
   }
-  /* css for charts  */
-  .charts-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+  
+  .metric-card.resolved {
+    background-color: #c8f7c5;
+  }
+  
+  .section {
+    margin-top: 30px;
+  }
+  
+  .province-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .province-card {
+    background: #e0e0e0;
+    padding: 10px 16px;
+    border-radius: 8px;
+    min-width: 140px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-pie {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .category-segment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .category-segment .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #555;
+    border-radius: 50%;
+  }
+  
+  .complaints-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .complaints-table th,
+  .complaints-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .complaints-table th {
+    background-color: #f5f5f5;
+  }
+  
+  .latest-complaints {
     margin-top: 2rem;
   }
   
-  .chart-box {
-    background: #fff;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  .latest-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 14px;
   }
+  
+  .latest-table th,
+  .latest-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .latest-table th {
+    background-color: #f4f4f4;
+    text-align: left;
+  }
+  
+  .latest-table .status.pending {
+    color: #c47f00;
+    font-weight: 600;
+  }
+  
+  .latest-table .status.in-progress {
+    color: #0077b6;
+    font-weight: 600;
+  }
+  
+  .latest-table .status.resolved {
+    color: #2e7d32;
+    font-weight: 600;
+  }
+  
   @media (min-width: 200px) and (max-width: 600px) {
     .welcome-box h2 {
       margin: 0;

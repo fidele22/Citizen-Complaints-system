@@ -47,7 +47,7 @@ const ViewItems = () => {
   useEffect(() => {
     const fetchUserRoles = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/roles`);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/roles/get-roles`);
         setRoles(response.data);
       } catch (error) {
         console.error('Error fetching roles:', error);
@@ -238,7 +238,7 @@ const ViewItems = () => {
                 <button className='edit-user-close-btn' onClick={handleCloseForm}>
                   <FaTimes size={44} />
                 </button>
-                <h2>Edit User</h2>
+                <h2>Edit User data</h2>
                 <label>First Name</label>
                 <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
                 <label>Last Name</label>

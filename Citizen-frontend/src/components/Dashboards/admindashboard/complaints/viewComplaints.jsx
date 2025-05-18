@@ -159,6 +159,10 @@ const ComplaintList = () => {
         <p><strong>Submitted At:</strong> {new Date(selectedComplaint.submittedAt).toLocaleString()}</p>
         <p><strong>Complaint Description:</strong> {selectedComplaint.description}</p>
       </div>
+      <div className="details-section">
+        <h3>📋 Response Information</h3>
+        <p><strong>Complaint Response:</strong> {selectedComplaint.response}</p>
+      </div>
     </div>
   </div>
 )}

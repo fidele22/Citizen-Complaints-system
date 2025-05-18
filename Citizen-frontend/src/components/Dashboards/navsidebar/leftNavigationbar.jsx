@@ -72,7 +72,7 @@ const LeftNavbar = ({ setCurrentPage, privileges, isVisible, closeNav }) => {
       <h3>Setting</h3>
      
         <li  className={activePage === 'user-profile' ? 'active' : ''}  onClick={() => handleNavigation('user-profile')}><FaUser /> Profile</li>
-        <li className={activePage === 'help_center' ? 'active' : ''} onClick={() => handleNavigation('help_center')}><FaBurn /> Help Center</li>
+
         </ul>
         <ol>
         <div className='logout-btn'>

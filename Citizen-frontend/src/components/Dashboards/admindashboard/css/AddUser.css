@@ -61,18 +61,17 @@ position: absolute;
 
 .register-user label {
   display: block;
-  margin-top: 1rem;
   font-weight: 600;
   font-size: 0.95rem;
   color: #333;
 }
 
-.register-user input {
+.register-user input,select {
   width: 100%;
   padding: 0.50rem 1rem;
   margin-top: 0.25rem;
   border: 1px solid #ccc;
-  border-radius: 0.6rem;
+  border-radius: 0.5rem;
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;

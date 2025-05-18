@@ -170,8 +170,10 @@ const ViewPosition = () => {
                 <td>{index + 1}</td>
                 <td>{role.name}</td>
                 <td>
-                  <button onClick={() => handleEditClick(role)}><FaEdit size={24} color='black' /></button>
-                  <button onClick={() => handleDelete(role._id)}><FaTrash size={24} color='red' /></button>
+                  <button onClick={() => handleEditClick(role)} style={{backgroundColor:'transparent'}}>
+                    <FaEdit size={24} color='black' /></button>
+                  <button onClick={() => handleDelete(role._id)}  style={{backgroundColor:'transparent'}}>
+                    <FaTrash size={24} color='red' /></button>
                 </td>
               </tr>
             ))}
@@ -206,8 +208,8 @@ const ViewPosition = () => {
                 </div>
               ))}
             </div>
-            <button onClick={handleUpdate}>Update</button>
-            <button onClick={() => setEditRole(null)}>Cancel</button>
+            <button onClick={handleUpdate} >Update</button>
+            <button onClick={() => setEditRole(null)} style={{backgroundColor:'red'}} >Cancel</button>
           </div>
         </div>
       )}

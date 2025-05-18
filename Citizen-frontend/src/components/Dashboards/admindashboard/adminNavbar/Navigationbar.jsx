@@ -56,7 +56,7 @@ const Navbar = ({ setCurrentPage, privileges, isVisible, closeNav }) => {
      <h3>Profile settings</h3>
     
         <li className={activePage === 'user-profile' ? 'active' : ''} onClick={() => handleLinkClick('user-profile')}><FaUser  /> Profile</li>
-        <li className={activePage === 'help-center' ? 'active' : ''} onClick={() => handleLinkClick('help-center')}><FaBurn /> Help Center</li>
+
         
       </ul>
       <ol>

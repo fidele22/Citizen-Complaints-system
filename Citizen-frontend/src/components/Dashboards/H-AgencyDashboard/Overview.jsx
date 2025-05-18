@@ -46,15 +46,15 @@ const StatusOverview = () => {
   }, []);
 
   const [data, setData] = useState(null);
-  const [electricityComplaints, setElectricityComplaints] = useState([]);
+  const [HealthcareComplaints, setHealthComplaints] = useState([]);
 
   useEffect(() => {
     const fetchComplaints = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/complaints/overview-electrity-data');
+        const res = await axios.get('http://localhost:5000/api/complaints/overview-health-data');
         const { total, pending, inProgress, resolved, latestThree, allComplaints } = res.data;
   
-        setElectricityComplaints(allComplaints);
+        setHealthComplaints(allComplaints);
         setData({ total, pending, inProgress, resolved, latestThree });
   
       } catch (err) {
@@ -67,16 +67,16 @@ const StatusOverview = () => {
   
 
   // Group complaints by province
-  const provinceCounts = electricityComplaints.reduce((acc, complaint) => {
+  const provinceCounts = HealthcareComplaints.reduce((acc, complaint) => {
     const prov = complaint.provence;
     acc[prov] = (acc[prov] || 0) + 1;
     return acc;
   }, {});
 
-  const total = electricityComplaints.length;
-  const pending = electricityComplaints.filter(c => c.status === 'Pending').length;
-  const inProgress = electricityComplaints.filter(c => c.status === 'In Progress').length;
-  const resolved = electricityComplaints.filter(c => c.status === 'Resolved').length;
+  const total = HealthcareComplaints.length;
+  const pending = HealthcareComplaints.filter(c => c.status === 'Pending').length;
+  const inProgress = HealthcareComplaints.filter(c => c.status === 'In Progress').length;
+  const resolved = HealthcareComplaints.filter(c => c.status === 'Resolved').length;
 
 
   return (
@@ -103,7 +103,7 @@ const StatusOverview = () => {
 )}
 
 
-<h4>Electricity Complaints Overview</h4>
+<h4>HealthCare Complaints Overview</h4>
 
 {/* Summary Stats */}
 <div className="metrics">
@@ -127,7 +127,7 @@ const StatusOverview = () => {
 
 {/* Province Breakdown */}
 <div className="section">
-  <h4>Complaints by Province</h4>
+  <h3>Complaints by Province</h3>
   <div className="province-cards">
     {Object.entries(provinceCounts).map(([province, count]) => (
       <div key={province} className="province-card">
@@ -140,7 +140,7 @@ const StatusOverview = () => {
 
       {/* Latest Complaints */}
 <div className="section latest-complaints">
-  <h3>Three latest Complaints</h3>
+  <h3>3 latest Complaints</h3>
   <table className="latest-table">
     <thead>
       <tr>

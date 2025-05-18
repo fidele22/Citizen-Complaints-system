@@ -77,8 +77,8 @@ function TopNavbar({ setCurrentPage, toggleNav,isNavVisible}) {
   return (
     <div className='Navbar'>
       <div className="logo">
-        <h1>KDS</h1>
-        <p>Kigali Diesel Service</p>
+        <h1>CCS</h1>
+        <p>Citizen Complaints System</p>
         {/* <img src={image3} alt="" /> */}
       </div>
       <div className="menu-navbar-toggle" onClick={toggleNav}>

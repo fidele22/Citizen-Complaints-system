@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './oveviewadmin.css';
+import './overviewadmin.css';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend
@@ -15,12 +15,9 @@ const StatusOverview = () => {
   const [loading, setLoading] = useState(true);
   const userRole = sessionStorage.getItem('role');
   const allRoles = [
-    { title: 'RECEPTIONIST', color: '#4e73df', icon: '📋' },
-    { title: 'ENGINEER', color: '#1cc88a', icon: '🛠️' },
-    { title: 'ACCOUNTANT', color: '#f6c23e', icon: '💰' },
-    { title: 'STOREKEEPER', color: '#36b9cc', icon: '📦' },
-    { title: 'DG', color: '#e74a3b', icon: '🏛️' },
-    { title: 'DAF', color: '#858796', icon: '📑' },
+    { title: 'HEALTH', color: '#4e73df', icon: '📋' },
+    { title: 'ELECTRICITY', color: '#1cc88a', icon: '🛠️' },
+  
   ];
   
   const currentRoleCard = allRoles.find((role) => role.title === userRole);
@@ -48,16 +45,27 @@ const StatusOverview = () => {
     fetchUser();
   }, []);
 
+  const [data, setData] = useState(null);
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/userdata/status-summary-overview')
-      .then(res => setStatusSummary(res.data))
-      .catch(err => console.error(err));
+    const fetchOverview = async () => {
+      try {
+        const res = await axios.get('http://localhost:5000/api/complaints/overview-data');
+        setData(res.data);
+      } catch (err) {
+        console.error('Failed to fetch overview:', err);
+      }
+    };
+    fetchOverview();
   }, []);
+
+  if (!data) return <p>Loading overview...</p>;
+
 
   return (
     <div>
       {!loading && user && (
-        <div className="admin-welcome-box">
+        <div className="welcome-box">
           <h2>👋 Welcome back, <span>{user.lastName}</span>!</h2>
           <p>We're glad to see you again. Here's an overview of company work statuses.</p>
         </div>
@@ -78,54 +86,70 @@ const StatusOverview = () => {
 )}
 
 
-    <div className="status-grid">
-      {statusSummary.map((item) => (
-        <div key={item.status} className="status-card">
-          <h4>{item.status} {item.count === 1 ? 'Activity' : 'Activities'}</h4>
-          <p>{item.count} </p>
+<div className="metrics">
+        <div className="metric-card total">
+          <h3>Total Complaints</h3>
+          <p>{data.total}</p>
         </div>
-      ))}
-    </div>
-
-    <div className="charts-container">
-      {/* Bar Chart */}
-      <div className="chart-box">
-        <h3>Status Bar Chart</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={statusSummary}>
-            <XAxis dataKey="status" />
-            <YAxis allowDecimals={false} />
-            <Tooltip />
-            <Bar dataKey="count" fill="#8884d8" />
-          </BarChart>
-        </ResponsiveContainer>
+        {Object.entries(data.statusCounts).map(([status, count]) => (
+          <div key={status} className={`metric-card ${status.toLowerCase().replace(/\s/g, '-')}`}>
+            <h3>{status}</h3>
+            <p>{count}</p>
+          </div>
+        ))}
       </div>
 
-      {/* Pie Chart */}
-      <div className="chart-box">
-        <h3>Status Pie Chart</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <PieChart>
-            <Pie
-              data={statusSummary}
-              dataKey="count"
-              nameKey="status"
-              cx="50%"
-              cy="50%"
-              outerRadius={100}
-              label
-            >
-              {statusSummary.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend />
-          </PieChart>
-        </ResponsiveContainer>
+      <div className="section">
+        <h3>Electricity Complaints by Province</h3>
+        <div className="province-cards">
+          {data.electricityByProvince.map((item, i) => (
+            <div key={i} className="province-card">
+              <p><strong>{item.province}</strong></p>
+              <p>{item.count} Complaints</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="section">
+        <h3>Complaint Category Distribution</h3>
+        <div className="category-pie">
+          {Object.entries(data.categoryCounts).map(([category, count]) => (
+            <div key={category} className="category-segment">
+              <span className="dot"></span>
+              <p>{category} - {count}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="section">
+        <h3>Latest Complaints</h3>
+        <table className="complaints-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Province</th>
+              <th>Submitted</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.latestComplaints.map((c, i) => (
+              <tr key={i}>
+                <td>{c.fullname}</td>
+                <td>{c.category}</td>
+                <td>{c.status}</td>
+                <td>{c.province}</td>
+                <td>{new Date(c.submittedAt).toLocaleString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
-  </div>
+
   );
 };
 

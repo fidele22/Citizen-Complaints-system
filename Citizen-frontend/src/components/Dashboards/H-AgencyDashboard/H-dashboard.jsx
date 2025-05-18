@@ -5,9 +5,9 @@ import LeftNavbar from '../navsidebar/leftNavigationbar';
 import UserProfile from '../UserProfile/profile';
 import Overview from './Overview';
 import ViewComplaints from './complaints/viewComplaints';
-import './hodDashboard.css';
+import './H-Dashboard.css';
 
-const HodDashboard = () => {
+const HealthDashboard = () => {
   const [currentPage, setCurrentPage] = useState('overview');
   const [privileges, setPrivileges] = useState([]);
   const [isNavVisible, setIsNavVisible] = useState(false); // State for navigation visibility
@@ -108,4 +108,4 @@ const HodDashboard = () => {
   );
 };
 
-export default HodDashboard;
+export default HealthDashboard;

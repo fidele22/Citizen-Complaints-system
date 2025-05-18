@@ -104,7 +104,7 @@ const ComplaintList = () => {
 
   return (
     <div className="complaint-container">
-      <h2>Healthcare Complaints</h2>
+      <h2>Electricity Complaints</h2>
 
       {/* Filters */}
       <div className="filters">
