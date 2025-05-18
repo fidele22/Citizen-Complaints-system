@@ -2,7 +2,7 @@ import React, { useState,useRef,useEffect } from 'react';
 import { FaHome, FaBars, FaTimes } from 'react-icons/fa';
 import Navbar from './adminNavbar/Navigationbar';
 import Navigation from '../navbar/TopNavbar';
-// import Footer from '../footer/Footer';
+import Footer from '../footer/systemfooter';
 import AdminOverview from './adminOverview/AdminOverview';
 import ViewUser  from './user/users';
 import UserRole from './roles/viewRoles';
@@ -86,7 +86,7 @@ const AdminDashboard = () => {
           {renderContent()}
        
         </div>
-        {/* <Footer /> */}
+        <Footer /> 
       </div>
     
     </div>

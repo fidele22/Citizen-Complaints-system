@@ -109,6 +109,7 @@
 .date-range {
     display: flex;
     justify-content: space-between;
+    width: 100px;
 }
 
 .date-range div {

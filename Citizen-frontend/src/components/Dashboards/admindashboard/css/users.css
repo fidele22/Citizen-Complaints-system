@@ -299,20 +299,5 @@ margin-bottom: 0;
   }
 
   @media (max-width: 768px) {
-    .view-items {
-
-      padding: 2px;
-    }
-    .items-table {
-      width: 100%;
-    }
-    .items-table .searchbar{
-      width: 100%;
-      padding:15px;
-    }
-    .users-headers-title h2{
-      font-size: 13px;
-      margin: 20px;
-      text-align: center;
-    }
+ 
   }

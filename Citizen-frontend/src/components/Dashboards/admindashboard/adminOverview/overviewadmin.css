@@ -129,10 +129,16 @@ h2 {
   border-radius: 50%;
 }
 
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
 .complaints-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
+  min-width: 600px; /* optional: ensures table won't squeeze too much */
 }
 
 .complaints-table th,

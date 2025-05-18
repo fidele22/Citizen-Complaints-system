@@ -1,6 +1,6 @@
 import React, { useState, useEffect,useRef } from 'react';
 import TopNavigation from '../navbar/TopNavbar';
-// import Footer from '../footer/Footer';
+import Footer from '../footer/systemfooter';
 import LeftNavbar from '../navsidebar/leftNavigationbar';
 import UserProfile from '../UserProfile/profile';
 import Overview from './Overview';
@@ -97,12 +97,14 @@ const HealthDashboard = () => {
         privileges={privileges} closeNav={closeNav}  />
       </div>
       <div className='contents-page'>
+        <div>
           {renderContent()}
+       
         </div>
-     <div className="footer-page">
-        {/* <Footer /> */}
+    
+     
       </div>
-  
+      <Footer /> 
 
     </div>
   );
