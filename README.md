@@ -47,21 +47,21 @@ Common Features**
 
 **  Backend Setup**
 
-cd backend
-npm install
+cd backend,
+npm install,
 npm start
 or
 node server.js
 **
 N:B to get admin credentials locally run script files**
 
- first -node scripts/createAdminRole.js
+ first -node scripts/createAdminRole.js,
  second -node scripts/createAdminUser.js
 
 **3. Frontend Setup**
 
-cd Citizen-frontend
-npm install
+cd Citizen-frontend,
+npm install,
 npm start
 
    The frontend may run on http://localhost:3000, and the backend API will be served on the port specified and check  .env files for more URI Setup (e.g., http://localhost:5000,MONGO_URI=mongodb://localhost:27017/Citizen-ComplaintsDB).
