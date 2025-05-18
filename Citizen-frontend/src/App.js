@@ -12,6 +12,9 @@ import Client from './components/Dashboards/AgencyDashboard/clientdashboard';
 import CitizensPlatform from './components/citizensPage/landingPage';
 import ComplaintForm from './components/citizensPage/sendComplaintForm';  
 import ComplaintTrackProgress from './components/citizensPage/trackProgress';
+
+// agencies dashboard 
+import ElectricalAgency from './components/Dashboards/E-AgencyDashboard/E-dashboard';
 // import LoginSignup  from './components/loginregister/signinregister'
 import './App.css';
 
@@ -34,7 +37,8 @@ function App() {
 
     
           <Route path="/admin-dashboard/*" element={<ProtectedRoute component={AdminDashboard} />} />
-          <Route path="/health/*" element={<ProtectedRoute component={Client} />} /> 
+          <Route path="/health/*" element={<ProtectedRoute component={Client} />} />
+          <Route path="/electricity/*" element={<ProtectedRoute component={ElectricalAgency} />} />
     
          
           

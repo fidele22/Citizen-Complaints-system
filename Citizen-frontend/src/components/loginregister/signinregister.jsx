@@ -66,7 +66,7 @@ const LoginSignup = () => {
           case 'ADMIN':
             navigate('/admin-dashboard');
             break;
-          case 'REG':
+          case 'ELECTRICITY':
             navigate('/electricity');
             break;
           case 'HEALTH':
