@@ -49,7 +49,6 @@ Common Features**
 
 cd backend
 npm install
-# Create a .env file and add your MongoDB URI and any other environment variables
 npm start
 or
 node server.js
