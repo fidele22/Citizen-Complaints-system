@@ -4,6 +4,7 @@ import TopNavigation from '../navbar/TopNavbar';
 import LeftNavbar from '../navsidebar/leftNavigationbar';
 import UserProfile from '../UserProfile/profile';
 import Overview from './Overview';
+import ViewComplaints from './complaints/viewComplaints';
 import './hodDashboard.css';
 
 const HodDashboard = () => {
@@ -42,6 +43,8 @@ const HodDashboard = () => {
     switch (currentPage) {
       case 'overview':
         return <Overview />;
+      case 'complaints':
+        return <ViewComplaints />  
       case 'user-profile':
         return <UserProfile />;
       default:

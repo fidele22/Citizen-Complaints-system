@@ -8,7 +8,7 @@ import ForgotPassword  from './components/resetpassword/sendrestpasswordlink';
 import ResetPassword from './components/resetpassword/resetpassword';
 import AdminDashboard from './components/Dashboards/admindashboard/AdminDashboard';
 import ProtectedRoute from './components/protection/ProtectedRoute';
-import Client from './components/Dashboards/ClientDashboard/clientdashboard';
+import Client from './components/Dashboards/AgencyDashboard/clientdashboard';
 import CitizensPlatform from './components/citizensPage/landingPage';
 import ComplaintForm from './components/citizensPage/sendComplaintForm';  
 import ComplaintTrackProgress from './components/citizensPage/trackProgress';

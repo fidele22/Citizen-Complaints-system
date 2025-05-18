@@ -1,0 +1,231 @@
+.complaint-container {
+    padding: 2rem;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .complaint-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .complaint-card {
+    background: #f9f9f9;
+    border-left: 5px solid #ccc;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+  }
+  
+  .complaint-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .complaint-card h3 {
+    margin: 0 0 0.5rem;
+  }
+  
+  .status {
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .complaint-card.pending .status {
+    background: #f0ad4e;
+  }
+  
+  .complaint-card.in-progress .status {
+    background: #5bc0de;
+  }
+  
+  .complaint-card.resolved .status {
+    background: #5cb85c;
+  }
+
+  /* Add below existing styles or replace pagination section */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+  
+  .pagination button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .page-info {
+    font-weight: bold;
+  }
+  
+ /* Filter Section */
+.filters {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.filters-option {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.filters-option label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.filters-option select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.date-range {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-range div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.date-range div:last-child {
+    margin-right: 0;
+}
+
+.date-range label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.date-range input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+.complaint-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .complaint-details {
+    background: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .complaint-details p {
+    margin: 5px 0;
+  }
+  .view-detail-btn {
+    background-color: transparent;
+    border: 1px solid blue;
+    color: black;
+    margin-right: 10px;
+  }
+  .view-detail-btn:hover{
+    background-color: #ccc;
+
+  }
+  .close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: crimson;
+    color: white;
+    border: none;
+    font-size: 18px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .details-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 5px solid #1976d2;
+    background-color: #f1f7ff;
+    border-radius: 5px;
+  }
+  
+  .details-section h3 {
+    margin-bottom: 10px;
+    color: #1976d2;
+  }
+  /* response overlay  */
+
+  .response-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .response-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+  }
+  
+  .response-box textarea {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .response-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  

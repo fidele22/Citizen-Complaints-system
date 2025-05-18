@@ -51,9 +51,9 @@ const LeftNavbar = ({ setCurrentPage, privileges, isVisible, closeNav }) => {
             <span><FaHome /></span> Overview
           </li>
         )}
-        {privileges.includes('fill_reception_form') && (
-          <li className={activePage === 'reception_form' ? 'active' : ''} onClick={() => handleNavigation('reception_form')}>
-            <span><FaList /></span> Register tool
+        {privileges.includes('view_complaints') && (
+          <li className={activePage === 'complaints' ? 'active' : ''} onClick={() => handleNavigation('complaints')}>
+            <span><FaList /></span> View complaints
           </li>
         )}
         {privileges.includes('veiw_reception_data') && (
@@ -66,22 +66,7 @@ const LeftNavbar = ({ setCurrentPage, privileges, isVisible, closeNav }) => {
             <span><FaBoxOpen /></span> View Task
           </li>
         )}
-        {privileges.includes('view_added_data') && (
-          <li className={activePage === 'View_added_data' ? 'active' : ''} onClick={() => handleNavigation('View_added_data')}>
-            <span><FaBoxOpen /></span> View added data
-          </li>
-        )}
-        {/* supposed to on accountant  */}
-        {privileges.includes('view_report') && (
-          <li className={activePage === 'monthly_report' ? 'active' : ''} onClick={() => handleNavigation('monthly_report')}>
-            <span><FaBoxOpen /></span> Monthy report
-          </li>
-        )}
-        {privileges.includes('view_monthly_paid_Summary') && (
-          <li className={activePage === 'paid_monthly_summary' ? 'active' : ''} onClick={() => handleNavigation('paid_monthly_summary')}>
-            <span><FaBoxOpen /></span> Monthy Paid Summary
-          </li>
-        )}
+
     
 
       <h3>Setting</h3>

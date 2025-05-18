@@ -61,6 +61,37 @@ router.get('/get-complaints', async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch complaints', error: err.message });
   }
 });
+
+// GET all complaints (with optional category filter)
+router.get('/get-categorized-complaints', async (req, res) => {
+  try {
+    const { category } = req.query;
+    let query = {};
+
+    if (category) {
+      query.category = category;
+    }
+
+    const complaints = await Complaint.find(query).sort({ submittedAt: -1 });
+    res.json(complaints);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch complaints', error: err.message });
+  }
+});
+
+// PATCH: Update complaint response and status
+// PUT /api/complaints/:id
+router.put('/update-complaints/:id', async (req, res) => {
+  try {
+    const { status, response } = req.body;
+    const updated = await Complaint.findByIdAndUpdate(req.params.id, { status, response }, { new: true });
+    res.json(updated);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update complaint' });
+  }
+});
+
+
 // GET complaints filtered by month and year (optional)
 router.get('/get-complaints/monthly', async (req, res) => {
   try {
