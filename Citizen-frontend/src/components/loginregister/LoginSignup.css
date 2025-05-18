@@ -14,7 +14,7 @@ body {
   /* Left Side */
   .login-left {
     flex: 1;
-    background: linear-gradient(135deg, #1da740, #00ffff);
+    background: linear-gradient(135deg, #cee8f1, #276ca5);
     color: white;
     padding: 60px 40px;
     display: flex;

@@ -10,8 +10,8 @@ const Navbar = () => {
     <nav className="navbar-custom">
       <div className="navbar-container">
         <div className="logo-section">
-          <img src="/logo-icon.svg" alt="Logo" className="logo-icon" />
-          <span className="logo-text">CivicSolve</span>
+        
+          <span className="logo-text">CCS</span>
         </div>
 
         <div className="nav-links">

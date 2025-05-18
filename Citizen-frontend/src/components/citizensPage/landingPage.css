@@ -149,7 +149,7 @@ button:hover {
 @keyframes slideAnimation {
   0%   { background-image: url('../../assets/1.png'); }
   33%  { background-image: url('../../assets/2.png'); }
-  66%  { background-image: url('../../assets/3.png'); }
+  66%  { background-image: url('../../assets/2.png'); }
   100% { background-image: url('../../assets/2.png'); }
 }
 

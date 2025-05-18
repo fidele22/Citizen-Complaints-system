@@ -99,7 +99,7 @@ const LoginSignup = () => {
           <div className="login-left">
             <h2>Welcome Back!</h2>
             <p>Log in to continue to the Citizen Engagement System.</p>
-            <img src="/welcome-img.svg" alt="Welcome" className="welcome-img" />
+        
           </div>
     
           <div className="login-right">
