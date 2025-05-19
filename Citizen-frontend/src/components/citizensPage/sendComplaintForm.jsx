@@ -29,26 +29,68 @@ export default function ComplaintForm() {
   const [form, setForm] = useState(initialFormState);
 
   
-  const next = () => setCurrent(c => Math.min(c + 1, steps.length - 1));
+  
   const back = () => setCurrent(c => Math.max(c - 1, 0));
+  const validateStep = () => {
+    switch (current) {
+      case 0:
+        return (
+          form.firstName.trim() &&
+          form.lastName.trim() &&
+          form.birthDate &&
+          form.gender &&
+          form.provence &&
+          form.district &&
+          form.idType &&
+          form.idNumber.trim()
+        );
+      case 1:
+        return form.category && form.description.trim();
+      case 2:
+        return (
+          form.notifyVia &&
+          form.notifyValue.trim() &&
+          (
+            form.notifyVia === "email"
+              ? /\S+@\S+\.\S+/.test(form.notifyValue) // Email format
+              : /^[0-9]{10,15}$/.test(form.notifyValue) // Phone number format
+          )
+        );
+      default:
+        return true;
+    }
+  };
+  
 
+  const next = () => {
+    if (validateStep()) {
+      setCurrent(c => Math.min(c + 1, steps.length - 1));
+    } else {
+      toast.error("Please fill in all required fields correctly.");
+    }
+  };
+  
   const submit = async () => {
-    setIsSubmitting(true); // disable button + show loading
+    if (!validateStep()) {
+      toast.error("Please complete the notification info correctly.");
+      return;
+    }
+  
+    setIsSubmitting(true);
     try {
       const res = await axios.post("http://localhost:5000/api/complaints/submit", form);
       const id = res.data.ticketId;
-      setTicketId(id); // Save ticket ID
+      setTicketId(id);
       toast.success(`Complaint Submitted successfully! Ticket ID: ${id}`);
-        // Clear the form and reset step to the first page
-    setForm(initialFormState);
-    setCurrent(0);
+      setForm(initialFormState);
+      setCurrent(0);
     } catch (err) {
       toast.error("Submission failed");
-    
-} finally {
-    setIsSubmitting(false); // re-enable after request finishes
-  }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+  
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -81,8 +123,8 @@ export default function ComplaintForm() {
           {current === 0 && (
             <div className="person-information">
               <div className="person-input-field">
-                <input name="firstName" onChange={handleChange} value={form.firstName} placeholder="First Name" />
-                <input name="lastName" onChange={handleChange} value={form.lastName} placeholder="Last Name" />
+                <input name="firstName" onChange={handleChange} value={form.firstName} placeholder="First Name" required />
+                <input name="lastName" onChange={handleChange} value={form.lastName} placeholder="Last Name" required />
                 <input type="date" name="birthDate" onChange={handleChange} value={form.birthDate} />
               </div>
               <div className="person-input-field">
@@ -98,10 +140,14 @@ export default function ComplaintForm() {
                   <option>South</option>
                   <option>Kigali</option>
                 </select>
-                <select name="district" onChange={handleChange} value={form.district}>
-                  <option value="">District</option>
-                  <option>District A</option><option>District B</option>
-                </select>
+                <input
+                 name="district"
+                 onChange={handleChange}
+                 value={form.district}
+                 placeholder="Enter your District"
+                 required
+               />
+               
               </div>
               <div className="person-input-fiel">
                 <select name="idType" onChange={handleChange} value={form.idType}>
