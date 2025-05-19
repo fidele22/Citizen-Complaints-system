@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
 
   twoFAEnabled: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 
   twoFACode: String,
