@@ -147,9 +147,9 @@ button:hover {
 
 /* Keyframes for background slideshow */
 @keyframes slideAnimation {
-  0%   { background-image: url('../../assets/1.png'); }
+  0%   { background-image: url('../../assets/img.webp'); }
   33%  { background-image: url('../../assets/2.png'); }
-  66%  { background-image: url('../../assets/2.png'); }
+  66%  { background-image: url('../../assets/image.avif'); }
   100% { background-image: url('../../assets/2.png'); }
 }
 
