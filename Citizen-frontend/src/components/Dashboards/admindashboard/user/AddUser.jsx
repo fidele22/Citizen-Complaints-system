@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import '../css/AddUser.css';
+import '../css/swal-model.css';
 
 const AddUser = ({ onUserAdded }) => {
   const [roles, setRoles] = useState([]);
@@ -69,6 +70,7 @@ const AddUser = ({ onUserAdded }) => {
         text: 'User registered successfully',
         icon: 'success',
         confirmButtonText: 'OK',
+        customClass: { popup: 'custom-swal' }
       });
   // 👇 Call this to notify parent (ViewItems)
   if (onUserAdded) {
@@ -90,13 +92,22 @@ const AddUser = ({ onUserAdded }) => {
       }
     } catch (error) {
       console.error('Error registering user:', error);
+    
+      let errorMessage = 'Failed to register new user!';
+    
+      if (error.response && error.response.data && error.response.data.message) {
+        errorMessage = error.response.data.message;
+      }
+    
       Swal.fire({
         title: 'Error!',
-        text: 'Failed to register new user!',
+        text: errorMessage,
         icon: 'error',
         confirmButtonText: 'OK',
+        customClass: { popup: 'custom-swal' }
       });
     }
+    
   };
   return (
     <div className='add-user'>

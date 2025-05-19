@@ -141,6 +141,7 @@ const StatusOverview = () => {
       {/* Latest Complaints */}
 <div className="section latest-complaints">
   <h3>Three latest Complaints</h3>
+  <div className="table-container">
   <table className="latest-table">
     <thead>
       <tr>
@@ -166,6 +167,7 @@ const StatusOverview = () => {
 
     </tbody>
   </table>
+</div>
 </div>
 
       </div>

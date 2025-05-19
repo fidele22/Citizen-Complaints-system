@@ -91,7 +91,12 @@ const ViewItems = () => {
         });
       } catch (error) {
         console.error('Error deleting user:', error);
-        Swal.fire('Error!', 'Failed to delete this user.', 'error');
+        Swal.fire({
+          title:'Error!',
+          text: 'Failed to delete this user.', 
+          icon: 'error',
+          customClass: { popup: 'custom-swal' },
+        });
       }
     }
   };

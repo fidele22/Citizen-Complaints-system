@@ -29,22 +29,15 @@ const LoginSignup = () => {
   const navigate = useNavigate();
 
 
-
-  const validateLoginForm = () => {
-    const newErrors = {};
-    const { phone, password } = formData;
-
-    if (!/^\d{10}$/.test(phone)) newErrors.phone = 'Phone number must be 10 digits';
-    if (!password) newErrors.password = 'Password is required';
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      toast.error('Email and password are required');
+  
+    const newErrors = {};
+    if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Invalid email format';
+    if (!password) newErrors.password = 'Password is required';
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      toast.error('Invalid email address or password');
       return;
     }
   
@@ -132,9 +125,12 @@ const LoginSignup = () => {
               </form>
               <p className="register-link">
                 Don't have an account? <a href="/register">Register</a>
+             
+
               </p>
             </div>
           </div>
+             <ToastContainer position="top-right" autoClose={6000} />
         </div>
       </>
     );

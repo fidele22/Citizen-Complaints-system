@@ -5,7 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 import './rolestyling.css'; // Ensure this has your overlay and form styles
 
-const ServiceForm = ({ onClose }) => {
+const AddRole = ({ onClose }) => {
   const [formData, setFormData] = useState({
     name: '',
     description: ''
@@ -47,9 +47,9 @@ const ServiceForm = ({ onClose }) => {
         </form>
       </div>
 
-      <ToastContainer position="top-right" autoClose={3000} />
+
     </div>
   );
 };
 
-export default ServiceForm;
+export default AddRole;

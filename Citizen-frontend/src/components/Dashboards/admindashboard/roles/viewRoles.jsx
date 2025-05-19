@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import AddNewRole from './AddRole';
 import Swal from 'sweetalert2'; 
 import { FaEdit, FaTrash, FaTimes, FaPlus,FaShieldAlt  } from 'react-icons/fa';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import axios from 'axios';
 import '../css/service.css';
 import './rolestyling.css';
@@ -221,6 +224,9 @@ const ViewPosition = () => {
           </div>
         </div>
       )}
+
+    {/* Toast container placed at the top level of the page */}
+    <ToastContainer position="top-right" autoClose={6000} />
     </div>
   );
 };
