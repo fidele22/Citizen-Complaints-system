@@ -1,7 +1,7 @@
 // src/pages/ForgotPassword.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import backgroundImage from '../../assets/bgcolor.jpg'; // adjust path as needed
+ // adjust path as needed
 
 import './resetpassword.css';
 
@@ -24,7 +24,7 @@ const ForgotPassword = () => {
     <div
   className="forgot-password-page"
   style={{
-    backgroundImage: `url(${backgroundImage})`,
+
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     minHeight: '100vh',

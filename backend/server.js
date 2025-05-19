@@ -8,8 +8,8 @@ const session = require('express-session');
 const connectDB = require('./configiration/database');
 
 const app = express();
-app.use(express.json()); // Or use body-parser's JSON parser
-app.use(bodyParser.json()); // If using body-parser
+app.use(express.json()); // 
+app.use(bodyParser.json()); // 
 app.use(express.urlencoded({ extended: true }));
 
 // imports of routes
@@ -52,8 +52,7 @@ app.post('/api/logout', (req, res) => {
   }
 });
 
-app.use('/photos', express.static(path.join(__dirname, 'photos')));
-app.use('/stockimage', express.static(path.join(__dirname, 'stockimage')));
+
 
  const PORT = process.env.PORT || 5000;
  app.listen(PORT, '0.0.0.0', () => {

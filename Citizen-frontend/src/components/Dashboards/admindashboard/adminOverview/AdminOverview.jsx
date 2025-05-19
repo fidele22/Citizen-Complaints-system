@@ -139,10 +139,10 @@ const StatusOverview = () => {
           <tbody>
             {data.latestComplaints.map((c, i) => (
               <tr key={i}>
-                <td>{c.fullname}</td>
+                <td>{c.firstName} {c.lastName}</td>
                 <td>{c.category}</td>
                 <td>{c.status}</td>
-                <td>{c.province}</td>
+                <td>{c.provence}</td>
                 <td>{new Date(c.submittedAt).toLocaleString()}</td>
               </tr>
             ))}

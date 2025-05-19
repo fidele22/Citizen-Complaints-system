@@ -66,3 +66,17 @@ npm start
 
    The frontend may run on http://localhost:3000, and the backend API will be served on the port specified and check  .env files for more URI Setup (e.g., http://localhost:5000,MONGO_URI=mongodb://localhost:27017/Citizen-ComplaintsDB).
 
+
+*Sample login credentials:*
+
+for admin:
+
+email:admin@gmail.com
+pswd:admin123
+
+for agency:
+email:sasa@gmail.com
+pws:sasa123
+
+
+

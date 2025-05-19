@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/Users');
-const upload = require('../middlewares/upload');
 const multer = require('multer');
 const path = require('path');
 const Role = require('../models/userRoles')
@@ -70,32 +69,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-//overview page 
-// GET: Count forms grouped by status
-// router.get('/status-summary-overview', async (req, res) => {
-//   try {
-//     const allStatuses = ['Pending', 'In Progress', 'Completed', 'Uncompleted', 'Paid', 'UnPaid'];
 
-//     const rawSummary = await ReceptionForm.aggregate([
-//       {
-//         $group: {
-//           _id: '$status',
-//           count: { $sum: 1 }
-//         }
-//       }
-//     ]);
-
-//     const summary = allStatuses.map(status => {
-//       const found = rawSummary.find(s => s._id === status);
-//       return { status, count: found ? found.count : 0 };
-//     });
-
-//     res.json(summary);
-//   } catch (error) {
-//     console.error('Error getting status summary:', error);
-//     res.status(500).json({ message: 'Server error', error });
-//   }
-// });
 
 
 module.exports = router;
